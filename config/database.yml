@@ -1,4 +1,4 @@
-<% project_name = 'rails-api-template' %>
+<% project_name = 'rails-api-cookbook-lab' %>
 
 default: &default
   adapter: postgresql
