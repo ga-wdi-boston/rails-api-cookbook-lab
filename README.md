@@ -1,60 +1,67 @@
 [![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
-# Rails API Single Lab
+# Rails API: Cookbook API (Lab)
 
-## Prerequisites
+This is part of the Rails API sequence of talks. Each talk has its own
+repository with a reference README.
 
--   Ruby
+-   [Rails API: Single Resource](https://github.com/ga-wdi-boston/rails-api-single-resource)
+-   [Rails API: One-to-Many](https://github.com/ga-wdi-boston/rails-api-one-to-many)
+-   [Rails API: Many-to-Many](https://github.com/ga-wdi-boston/rails-api-many-to-many)
 
-## Objectives
+Each talk is designed to walk through the creation of a real Rails API,
+feature-by-feature, using "error driven development". Developers should have
+completed the introductory [Rails
+API](https://github.com/ga-wdi-boston/rails-api) talk. This sequence ends with
+[Rails API: Behavior-Driven
+Development](https://github.com/ga-wdi-boston/rails-api-bdd), where
+error-driven-development is replaced by automated testing.
 
-By the end of this lesson, students should be able to:
+Each talk covers three domains, and therefore, three APIs. The demonstration
+API, developed by consultants, is followed by a code-along API, in which
+developers and consultants work together to build the API. Finally, developers
+are expected to build their own API as part of the laboratory portions of each
+talk.
 
--   Create an API
+-   [Library API](https://github.com/ga-wdi-boston/rails-api-library-demo)
+-   [Clinic API](https://github.com/ga-wdi-boston/rails-api-clinic-code-along)
+-   [Cookbook API](https://github.com/ga-wdi-boston/rails-api-cookbook-lab)
+
+These API repositories contain a few important branches:
+
+-   `master` contains starter code.
+-   `solution` contains a feature-complete reference API. History is not
+    canonical.
+-   `tutorial` contains detailed commit history, and tags for where each talk
+    should end.
 
 ## Preparation
 
-1.  [Fork and clone](https://github.com/ga-wdi-boston/meta/wiki/ForkAndClone)
-    this repository.
+1.  Fork and clone this repository.
 1.  Create a new branch, `training`, for your work.
-1.  Install dependencies with `bundle install`
-1.  Once dependencies have finished installing open your rails server in another
-terminal tab with `rails server`.
+1.  Checkout to the `training` branch.
+1.  Install dependencies with `bundle install`.
+1.  Create a `.env` for sensitive settings (`touch .env`).
+1.  Generate new `development` and `test` secrets (`bin/rake secret`).
+1.  Store them in `.env` with keys `SECRET_KEY_BASE_<DEVELOPMENT|TEST>`
+    respectively.
+1.  Setup your database with `bin/rake [db:drop] db:create db:migrate db:seed
+    db:examples`.
+1.  Run the API server with `bin/rails server`.
 
-## Dependencies
+## Tasks
 
--   [`rails-api`](https://github.com/rails-api/rails-api)
--   [`rails`](https://github.com/rails/rails)
--   [`active_model_serializers`](https://github.com/rails-api/active_model_serializers)
--   [`ruby`](https://www.ruby-lang.org/en/)
--   [`postgres`](http://www.postgresql.org)
+Developers should run these often!
 
-# Rails API Lab
+-   `bin/rake routes` lists the endpoints available in your API.
+-   `bin/rake test` runs automated tests.
+-   `bin/rails console` opens a REPL that pre-loads the API.
+-   `bin/rails db` opens your database client and loads the correct database.
+-   `bin/rails server` starts the API.
+-   `scripts/*.sh` run various `curl` commands to test the API. See below.
 
-It's your turn now to create an API using what we learned, your notes, previous
-repositories, the power of the internet, and your fellow developers.
-
-## Create a Cookbook API
-
--  Create a full cookbook API.
--  You should have an `Ingredient` model, `Ingredients` controller, and matching
-routes.
--  Your `Ingredient` model should have `name`, `std_measure` and `color` columns.
--  Via migration add a column called `toxicity`
--  Have a serializer, that censors sensitive information from the client.
--  Make a sucessful curl request for all C.R.U.D actions.
-
-
-## Tips
-
--  Be meticulous, did you check your pluralization? is your spelling correct? Did
-you miss and `end`?
--  Test frequently, check for errors in your browser and server.
--  Follow your errors, they typically give you a line number, be patient.  You
-should be able to identity the exact line of your bug before you ask for
-assistance.
--  Remember to use the generators to your advantage. They can save you valuable
-time.
+<!-- TODO -   `rake nag` checks your code style. -->
+<!-- TODO -   `rake lint` checks your code for syntax errors. -->
 
 ## [License](LICENSE)
 
