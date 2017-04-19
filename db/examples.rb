@@ -17,3 +17,15 @@
 #                password: 'abc123',
 #                password_confirmation: nil)
 # end
+
+ingredient_names = %w(eggs bourbon soda vanilla chocolate nutmeg milk)
+ingredient_units = %w(tsp tbsp shot each bar pint oz quart)
+
+ingredients = ingredient_names.product(ingredient_units)
+
+ingredients.each do |ingredient|
+  name = ingredient[0]
+  unit = ingredient[1]
+  next if Ingredient.exists? name: name, unit: unit
+  Ingredient.create!(name: name, unit: unit)
+end
